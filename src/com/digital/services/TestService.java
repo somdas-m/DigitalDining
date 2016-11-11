@@ -42,7 +42,7 @@ public class TestService {
 	@GET
 	@Path("/getAll")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Item getJobApplicationModel(){
+	public List<Item> getJobApplicationModel(){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		List<Item> items = session.createQuery("FROM ITEMS").list();
 		session.close();
