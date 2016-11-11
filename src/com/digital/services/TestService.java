@@ -6,6 +6,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 import com.digital.pojo.Item;
+import java.util.List;
 
 import org.hibernate.Session;
 
