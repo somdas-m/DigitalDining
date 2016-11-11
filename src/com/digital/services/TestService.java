@@ -10,6 +10,7 @@ public class TestService {
 	@GET
 	@Path("/test")
 	public String testWorking(){
+		System.out.println("Gonna start test");
 		HibernateUtil.getSessionFactory();
 		return "Test Successfull";
 	}
