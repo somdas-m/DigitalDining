@@ -19,7 +19,7 @@ public class TestService {
 		Item item = new Item();
 		item.setItemNumber("S101");
 		item.setItemName("TEST_ITEM");
-		item.setItemPrice(1.1);
+		item.setItemPrice(2);
 		item.setCategory("TEST_CAT");
 		System.out.println(item);
 		System.out.println("Gonna start test");
