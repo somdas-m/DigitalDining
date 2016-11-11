@@ -8,9 +8,9 @@
 
 		<!-- Connection settings -->
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-		<property name="hibernate.connection.url">jdbc:postgresql://localhost/sampledb</property>
-		<property name="hibernate.connection.username">postgres</property>
-		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.connection.url">jdbc:postgres://xyhnjciwyqgofx:0uK3UZZULbpAZD284PD5qEpO0s@ec2-54-235-155-172.compute-1.amazonaws.com:5432/da2ma8bnmoddpa</property>
+		<property name="hibernate.connection.username">xyhnjciwyqgofx</property>
+		<property name="hibernate.connection.password">0uK3UZZULbpAZD284PD5qEpO0s</property>
 		
 		<!-- <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<property name="hibernate.connection.url">jdbc:postgresql://ec2-54-235-183-28.compute-1.amazonaws.com:5432/dei0ekgbsj15sj</property>
