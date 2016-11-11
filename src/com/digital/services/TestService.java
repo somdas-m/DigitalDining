@@ -20,7 +20,7 @@ public class TestService {
 	@GET
 	@Path("/test")
 	public HashMap<String, String> testWorking(){
-		Item item;
+		Item item = null;
 		item.setItemNumber("S101");
 		item.setItemName("TEST_ITEM");
 		item.setItemPrice(2);
