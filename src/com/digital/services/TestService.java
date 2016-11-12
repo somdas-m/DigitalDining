@@ -19,12 +19,7 @@ import com.digital.util.HibernateUtil;
 public class TestService {
 	@GET
 	@Path("/test")
-	public HashMap<String, String> testWorking(){
-		Item item = null;
-		item.setItemNumber("S101");
-		item.setItemName("TEST_ITEM");
-		item.setItemPrice(2);
-		item.setCategory("TEST_CAT");
+	public HashMap<String, String> testWorking(Item item){
 		System.out.println(item);
 		System.out.println("Gonna start test");
 		Session session = HibernateUtil.getSessionFactory().openSession();
