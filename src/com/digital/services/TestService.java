@@ -44,7 +44,7 @@ public class TestService {
 		return items;
 	}
 	@GET
-	@Path("/getAll")
+	@Path("/ping")
 	public String ping(){
 		return "working" ;
 	}
