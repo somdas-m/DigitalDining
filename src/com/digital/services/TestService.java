@@ -24,8 +24,6 @@ public class TestService {
 		result.put("msg", "Job Application Submitted");
 		return result;
 	}
-	
-	}
 	@GET
 	@Path("/ping")
 	public String ping(){
