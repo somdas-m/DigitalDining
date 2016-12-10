@@ -43,4 +43,9 @@ public class TestService {
 		session.close();
 		return items;
 	}
+	@GET
+	@Path("/getAll")
+	public String ping(){
+		return "working" ;
+	}
 }
