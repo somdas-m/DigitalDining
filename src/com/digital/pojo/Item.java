@@ -1,22 +1,9 @@
 package com.digital.pojo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity(name = "ITEMS")
 public class Item {
-	@Id
-	@Column(name = "ITEM_ID")
 	private String itemNumber;
-	
-	@Column(name = "ITEM_NAME")
 	private String itemName;
-	
-	@Column(name = "ITEM_PRICE")
 	private float itemPrice;
-	
-	@Column(name = "ITEM_CATEGORY")
 	private String Category;
 	
 	public String getItemNumber() {
