@@ -3,25 +3,11 @@ package com.digital.pojo;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-
-
 public class Orders {
-	@Id
-	@Column(name = "TABLE_NO")
 	private String tableNo;
-	
-	@Column(name = "ORDERS")
 	private List<Item> orders;
-	
-	@Column(name = "PAYMENT_STATUS")
 	private boolean paymentStatus;
-	
-	@Column(name = "ORDERED_TIME")
 	private Date orderedTime;
-	
-	@Column(name = "AMOUNT")
 	private float amount;
 	
 	public float getAmount() {
