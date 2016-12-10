@@ -11,10 +11,6 @@ import com.digital.pojo.Item;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.hibernate.Session;
-
-import com.digital.util.HibernateUtil;
-
 @Path("/rest")
 public class TestService {
 	@GET
@@ -22,26 +18,13 @@ public class TestService {
 	public HashMap<String, String> testWorking(Item item){
 		System.out.println(item);
 		System.out.println("Gonna start test");
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		session.beginTransaction();
-		session.saveOrUpdate(item);
-		session.getTransaction().commit();
-		session.close();
-		
+				
 		HashMap<String, String> result = new HashMap<>();
 		result.put("status", "success");
 		result.put("msg", "Job Application Submitted");
 		return result;
 	}
 	
-	@GET
-	@Path("/getAll")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Item> getJobApplicationModel(){
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		List<Item> items = session.createQuery("FROM ITEMS").list();
-		session.close();
-		return items;
 	}
 	@GET
 	@Path("/ping")
