@@ -4,11 +4,12 @@ import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 
 import org.json.JSONException;
@@ -68,6 +69,12 @@ public class TestService {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	@DELETE
+	@Path("/delete/{itemNumber}")
+	public String deleteItem(@PathParam("itemNumber") String itemNumber){
+		return itemNumber;
 	}
 	
 }

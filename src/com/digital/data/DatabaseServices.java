@@ -31,14 +31,13 @@ public class DatabaseServices {
 					+ newItem.get(DigitalDiningConstants.ITEM_NAME)+"','"
 					+ newItem.get(DigitalDiningConstants.ITEM_PRICE)+"','"
 					+ newItem.get(DigitalDiningConstants.ITEM_CATEGORY)+"')";
-			//insertQuery = "";
 			st.execute(insertQuery);
 			System.out.println("Query executed!");
 			connection.close();
-			return "Query executed!";
+			return "Success";
 		}
 		else
-			return "Query failed!";
+			return "Failed";
 
 	}
 	
