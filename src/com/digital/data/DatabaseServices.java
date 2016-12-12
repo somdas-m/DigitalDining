@@ -66,7 +66,7 @@ public class DatabaseServices {
 		if(connection!=null){
 			Statement st = connection.createStatement();
 			String deleteQuery = "DELETE FROM ITEMS WHERE ITEM_NUMBER='"+itemNumber+"';";
-			ResultSet rs = st.executeQuery(deleteQuery);
+			st.executeUpdate(deleteQuery);
 			connection.close();
 		}
 	return "Success";
