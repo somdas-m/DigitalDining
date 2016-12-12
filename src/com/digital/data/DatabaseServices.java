@@ -32,7 +32,7 @@ public class DatabaseServices {
 					+ newItem.get(DigitalDiningConstants.ITEM_PRICE)+"','"
 					+ newItem.get(DigitalDiningConstants.ITEM_CATEGORY)+"')";
 			//insertQuery = "";
-			st.executeQuery(insertQuery);
+			st.execute(insertQuery);
 			System.out.println("Query executed!");
 			connection.close();
 			return "Query executed!";
