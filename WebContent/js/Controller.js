@@ -20,6 +20,7 @@ angular.module("digitalDining",[])
 		})
 	   .controller("viewController", function($scope, $http){
 		   $scope.getAllItems=function(){
+		   $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 		   $http.get("https://digitaldining.herokuapp.com/service/rest/getAll")
 		   		.success(function(response){
 		   			$scope.allItems = response;
