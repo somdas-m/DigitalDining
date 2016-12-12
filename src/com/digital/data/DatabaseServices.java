@@ -26,11 +26,12 @@ public class DatabaseServices {
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
-			String insertQuery = "INSERT INTO ITEMS VALUES("
-					+ newItem.get(DigitalDiningConstants.ITEM_NUMBER)+","
-					+ newItem.get(DigitalDiningConstants.ITEM_NAME)+","
-					+ newItem.get(DigitalDiningConstants.ITEM_PRICE)+","
-					+ newItem.get(DigitalDiningConstants.ITEM_CATEGORY)+")";
+			String insertQuery = "INSERT INTO ITEMS VALUES('"
+					+ newItem.get(DigitalDiningConstants.ITEM_NUMBER)+"','"
+					+ newItem.get(DigitalDiningConstants.ITEM_NAME)+"','"
+					+ newItem.get(DigitalDiningConstants.ITEM_PRICE)+"','"
+					+ newItem.get(DigitalDiningConstants.ITEM_CATEGORY)+"')";
+			//insertQuery = "";
 			st.executeQuery(insertQuery);
 			System.out.println("Query executed!");
 			connection.close();
@@ -46,7 +47,7 @@ public class DatabaseServices {
 		JSONArray jsonArray = new JSONArray();
 		if (connection != null) {
 			Statement st = connection.createStatement();
-			/*String query = "SELECT * FROM ITEMS";
+			String query = "SELECT * FROM ITEMS";
 			ResultSet rs = st.executeQuery(query);
 			while(rs.next()){
 				JSONObject jsonObject = new JSONObject();
@@ -55,11 +56,7 @@ public class DatabaseServices {
 				jsonObject.put(DigitalDiningConstants.ITEM_PRICE, rs.getString(2));
 				jsonObject.put(DigitalDiningConstants.ITEM_CATEGORY, rs.getString(3));
 				jsonArray.put(jsonObject);
-			}*/
-			String query = "SELECT * FROM ITEMS";
-			ResultSet rs = st.executeQuery(query);
-			JSONObject jsonObject = new JSONObject(rs);
-			jsonArray.put(jsonObject);
+			}
 		}
 		connection.close();
 		return jsonArray;
