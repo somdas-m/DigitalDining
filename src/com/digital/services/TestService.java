@@ -7,6 +7,9 @@ import java.util.HashMap;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.MediaType;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -55,6 +58,7 @@ public class TestService {
 	
 	@GET
 	@Path("/getAll")
+	@Produces(MediaType.TEXT_PLAIN)
 	public String getAllItems(){
 		String result = null;
 		try {
