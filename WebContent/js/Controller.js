@@ -20,5 +20,5 @@ angular.module("digitalDining",[])
 		});
 angular.module("digitalDining",[])
 	   .controller("viewController", function($scope, $http){
-		   
+		   $scope.allItems="welcome";
 	   });
