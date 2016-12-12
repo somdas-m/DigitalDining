@@ -33,6 +33,7 @@ public class DatabaseServices {
 					+ newItem.get(DigitalDiningConstants.ITEM_CATEGORY)+")";
 			st.executeQuery(insertQuery);
 			System.out.println("Query executed!");
+			connection.close();
 			return "Query executed!";
 		}
 		else
@@ -56,6 +57,7 @@ public class DatabaseServices {
 				jsonArray.put(jsonObject);
 			}
 		}
+		connection.close();
 		return jsonArray;
 	}
 
