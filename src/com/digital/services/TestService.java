@@ -24,7 +24,7 @@ public class TestService {
 
 	@POST
 	@Path("/insertNewItem")
-	public void insertNewItem(String payload) {
+	public String insertNewItem(String payload) {
 		try {
 			JSONObject jsonObject = new JSONObject(payload);
 			HashMap<String, String> newItem = new HashMap<String, String>();
@@ -36,16 +36,20 @@ public class TestService {
 					jsonObject.optString(DigitalDiningConstants.ITEM_PRICE));
 			newItem.put(DigitalDiningConstants.ITEM_CATEGORY,
 					jsonObject.optString(DigitalDiningConstants.ITEM_CATEGORY));
-			DatabaseServices.insertToDB(newItem);
+			return DatabaseServices.insertToDB(newItem);
 		} catch (JSONException e) {
 			System.out.println("JSONException : " + e);
+			return "JSONException : " + e;
 		} catch (ClassNotFoundException e) {
 			System.out.println("ClassNotFoundException");
 			System.out.println("DriverClass Not Found! " + e);
+			return "DriverClass Not Found! " + e;
 		} catch (URISyntaxException e) {
 			System.out.println("URISyntax Exception : " + e);
+			return "URISyntax Exception : " + e;
 		} catch (SQLException e) {
 			System.out.println("SQL Exception : " + e);
+			return "SQL Exception : " + e;
 		}
 	}
 }

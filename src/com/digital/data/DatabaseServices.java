@@ -13,7 +13,7 @@ public class DatabaseServices {
 			+ "ITEM_PRICE TEXT NOT NULL,"
 			+ "ITEM_CATEGORY TEXT NOT NULL);";
 	
-	public static void insertToDB(HashMap<String, String> newItem)
+	public static String insertToDB(HashMap<String, String> newItem)
 			throws ClassNotFoundException, URISyntaxException, SQLException {
 		Class.forName("org.postgresql.Driver");
 		Connection connection = DatabaseConnectivity.getConnected();
@@ -21,7 +21,10 @@ public class DatabaseServices {
 			Statement st = connection.createStatement();
 			st.executeQuery(createQuery);
 			System.out.println("Query executed!");
+			return "Query executed!";
 		}
+		else
+			return "Connection failed!";
 
 	}
 
