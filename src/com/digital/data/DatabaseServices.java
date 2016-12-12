@@ -60,5 +60,15 @@ public class DatabaseServices {
 		connection.close();
 		return jsonArray;
 	}
+	
+	public void deleteItem(String itemNumber) throws ClassNotFoundException, URISyntaxException, SQLException{
+		Connection connection = DatabaseConnectivity.getConnected();
+		if(connection!=null){
+			Statement st = connection.createStatement();
+			String deleteQuery = "DELETE FROM ITEMS WHERE ITEM_NUMBER='"+itemNumber+"';";
+			st.executeQuery(deleteQuery);
+			connection.close();
+		}
+	}
 
 }

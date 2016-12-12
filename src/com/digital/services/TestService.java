@@ -71,7 +71,7 @@ public class TestService {
 		return result;
 	}
 	
-	@DELETE
+	@GET
 	@Path("/delete/{itemNumber}")
 	public String deleteItem(@PathParam("itemNumber") String itemNumber){
 		return itemNumber;
