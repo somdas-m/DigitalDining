@@ -9,12 +9,10 @@
 
 </head>
 <body ng-app="digitalDining" ng-controller="insertController">
-	<form method="get" action="https://digitaldining.herokuapp.com/service/rest/test">
 		<input type="text" ng-model="ITEM_ID" placeholder="itemID"/>
 		<input type="text" ng-model="ITEM_NAME" placeholder="itemName"/>
 		<input type="text" ng-model="ITEM_PRICE" placeholder="itemPrice"/>
 		<input type="text" ng-model="ITEM_CATEGORY" placeholder="itemCategory"/>
-		<button ng-click="insert()" value="Add Item"/>
-	</form>
+		<button ng-click="insert()">Add New Item</button>
 </body>
 </html>
