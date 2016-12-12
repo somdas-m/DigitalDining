@@ -56,7 +56,7 @@ public class DatabaseServices {
 				jsonObject.put(DigitalDiningConstants.ITEM_CATEGORY, rs.getString(3));
 				jsonArray.put(jsonObject);
 			}*/
-			String query = "DESC ITEMS";
+			String query = "SELECT * FROM ITEMS";
 			ResultSet rs = st.executeQuery(query);
 			JSONObject jsonObject = new JSONObject(rs);
 			jsonArray.put(jsonObject);
