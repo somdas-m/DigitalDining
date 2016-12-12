@@ -1,32 +1,51 @@
 package com.digital.services;
 
+import java.net.URISyntaxException;
+import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.List;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
-import com.digital.pojo.Item;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import com.digital.constants.DigitalDiningConstants;
+import com.digital.data.DatabaseServices;
 
 @Path("/rest")
 public class TestService {
 	@GET
-	@Path("/test")
-	public HashMap<String, String> testWorking(Item item){
-		System.out.println(item);
-		System.out.println("Gonna start test");
-				
-		HashMap<String, String> result = new HashMap<>();
-		result.put("status", "success");
-		result.put("msg", "Job Application Submitted");
-		return result;
-	}
-	@GET
 	@Path("/ping")
-	public String ping(){
-		return "working" ;
+	public String ping() {
+		return "working fine...";
+	}
+
+	@POST
+	@Path("/insertNewItem")
+	public void insertNewItem(String payload) {
+		try {
+			JSONObject jsonObject = new JSONObject(payload);
+			HashMap<String, String> newItem = new HashMap<String, String>();
+			newItem.put(DigitalDiningConstants.ITEM_NUMBER,
+					jsonObject.optString(DigitalDiningConstants.ITEM_NUMBER));
+			newItem.put(DigitalDiningConstants.ITEM_NAME,
+					jsonObject.optString(DigitalDiningConstants.ITEM_NAME));
+			newItem.put(DigitalDiningConstants.ITEM_PRICE,
+					jsonObject.optString(DigitalDiningConstants.ITEM_PRICE));
+			newItem.put(DigitalDiningConstants.ITEM_CATEGORY,
+					jsonObject.optString(DigitalDiningConstants.ITEM_CATEGORY));
+			DatabaseServices.insertToDB(newItem);
+		} catch (JSONException e) {
+			System.out.println("JSONException : " + e);
+		} catch (ClassNotFoundException e) {
+			System.out.println("ClassNotFoundException");
+			System.out.println("DriverClass Not Found! " + e);
+		} catch (URISyntaxException e) {
+			System.out.println("URISyntax Exception : " + e);
+		} catch (SQLException e) {
+			System.out.println("SQL Exception : " + e);
+		}
 	}
 }

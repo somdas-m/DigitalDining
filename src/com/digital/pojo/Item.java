@@ -4,7 +4,7 @@ public class Item {
 	private String itemNumber;
 	private String itemName;
 	private float itemPrice;
-	private String Category;
+	private String itemCategory;
 	
 	public String getItemNumber() {
 		return itemNumber;
@@ -31,10 +31,10 @@ public class Item {
 	}
 
 	public String getCategory() {
-		return Category;
+		return itemCategory;
 	}
 
 	public void setCategory(String category) {
-		Category = category;
+		itemCategory = category;
 	}
 }
