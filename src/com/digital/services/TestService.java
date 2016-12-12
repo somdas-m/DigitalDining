@@ -52,4 +52,18 @@ public class TestService {
 			return "SQL Exception : " + e;
 		}
 	}
+	
+	@GET
+	@Path("/getAll")
+	public String getAllItems(){
+		String result = null;
+		try {
+			result = DatabaseServices.getAllItems().toString();
+		} catch (ClassNotFoundException | URISyntaxException | SQLException
+				| JSONException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 }

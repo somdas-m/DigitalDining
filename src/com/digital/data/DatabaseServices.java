@@ -2,9 +2,14 @@ package com.digital.data;
 
 import java.net.URISyntaxException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.digital.constants.DigitalDiningConstants;
 
@@ -17,7 +22,7 @@ public class DatabaseServices {
 	
 	public static String insertToDB(HashMap<String, String> newItem)
 			throws ClassNotFoundException, URISyntaxException, SQLException {
-		Class.forName("org.postgresql.Driver");
+		
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
@@ -33,6 +38,25 @@ public class DatabaseServices {
 		else
 			return "Query failed!";
 
+	}
+	
+	public static JSONArray getAllItems() throws ClassNotFoundException, URISyntaxException, SQLException, JSONException{
+		Connection connection = DatabaseConnectivity.getConnected();
+		JSONArray jsonArray = new JSONArray();
+		if (connection != null) {
+			Statement st = connection.createStatement();
+			String query = "SELECT * FROM ITEMS";
+			ResultSet rs = st.executeQuery(query);
+			while(rs.next()){
+				JSONObject jsonObject = new JSONObject();
+				jsonObject.put(DigitalDiningConstants.ITEM_NUMBER, rs.getString(0));
+				jsonObject.put(DigitalDiningConstants.ITEM_NAME, rs.getString(1));
+				jsonObject.put(DigitalDiningConstants.ITEM_PRICE, rs.getString(2));
+				jsonObject.put(DigitalDiningConstants.ITEM_CATEGORY, rs.getString(3));
+				jsonArray.put(jsonObject);
+			}
+		}
+		return jsonArray;
 	}
 
 }

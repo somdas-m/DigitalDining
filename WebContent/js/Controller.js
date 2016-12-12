@@ -2,7 +2,7 @@ angular.module("digitalDining",[])
 		.controller("insertController",function($scope, $http){
 			$scope.insert = function(){
 				var payload = {
-						"itemNumber"   : $scope.ITEM_ID,
+						"itemNumber"   : $scope.ITEM_NUMBER,
 						"itemName"	   : $scope.ITEM_NAME,
 						"itemPrice"	   : $scope.ITEM_PRICE,
 						"itemCategory" : $scope.ITEM_CATEGORY 
@@ -19,5 +19,12 @@ angular.module("digitalDining",[])
 			
 		})
 	   .controller("viewController", function($scope, $http){
-		   $scope.allItems="welcome";
+		   $http.get("https://digitaldining.herokuapp.com/service/rest/getAll")
+		   		.success(function(response){
+		   			$scope.allItems = response;
+		   			console.log(response);
+		   		})
+		   		.error(function(response){
+		   			console.log("Internal error : "+response);
+		   		});
 	   });
