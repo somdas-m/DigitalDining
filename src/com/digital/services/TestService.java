@@ -73,8 +73,8 @@ public class TestService {
 	
 	@GET
 	@Path("/delete/{itemNumber}")
-	public String deleteItem(@PathParam("itemNumber") String itemNumber){
-		return itemNumber;
+	public String deleteItem(@PathParam("itemNumber") String itemNumber) throws ClassNotFoundException, URISyntaxException, SQLException{
+		return DatabaseServices.deleteItem(itemNumber);
 	}
 	
 }

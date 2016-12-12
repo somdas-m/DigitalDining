@@ -61,7 +61,7 @@ public class DatabaseServices {
 		return jsonArray;
 	}
 	
-	public void deleteItem(String itemNumber) throws ClassNotFoundException, URISyntaxException, SQLException{
+	public static String deleteItem(String itemNumber) throws ClassNotFoundException, URISyntaxException, SQLException{
 		Connection connection = DatabaseConnectivity.getConnected();
 		if(connection!=null){
 			Statement st = connection.createStatement();
@@ -69,6 +69,7 @@ public class DatabaseServices {
 			st.executeQuery(deleteQuery);
 			connection.close();
 		}
+	return "Success";
 	}
 
 }
