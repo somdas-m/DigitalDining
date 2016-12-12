@@ -51,10 +51,10 @@ public class DatabaseServices {
 			ResultSet rs = st.executeQuery(query);
 			while(rs.next()){
 				JSONObject jsonObject = new JSONObject();
-				jsonObject.put(DigitalDiningConstants.ITEM_NUMBER, rs.getString(0));
-				jsonObject.put(DigitalDiningConstants.ITEM_NAME, rs.getString(1));
-				jsonObject.put(DigitalDiningConstants.ITEM_PRICE, rs.getString(2));
-				jsonObject.put(DigitalDiningConstants.ITEM_CATEGORY, rs.getString(3));
+				jsonObject.put(DigitalDiningConstants.ITEM_NUMBER, rs.getString(1));
+				jsonObject.put(DigitalDiningConstants.ITEM_NAME, rs.getString(2));
+				jsonObject.put(DigitalDiningConstants.ITEM_PRICE, rs.getString(3));
+				jsonObject.put(DigitalDiningConstants.ITEM_CATEGORY, rs.getString(4));
 				jsonArray.put(jsonObject);
 			}
 		}
