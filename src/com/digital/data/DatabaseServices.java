@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 
+import com.digital.constants.DigitalDiningConstants;
+
 public class DatabaseServices {
 	private static String createQuery = "CREATE TABLE ITEMS("
 			+ "ITEM_NUMBER TEXT PRIMARY KEY NOT NULL,"
@@ -19,12 +21,17 @@ public class DatabaseServices {
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
-			st.executeQuery(createQuery);
+			String insertQuery = "INSERT INTO ITEMS VALUES("
+					+ newItem.get(DigitalDiningConstants.ITEM_NUMBER)+","
+					+ newItem.get(DigitalDiningConstants.ITEM_NAME)+","
+					+ newItem.get(DigitalDiningConstants.ITEM_PRICE)+","
+					+ newItem.get(DigitalDiningConstants.ITEM_CATEGORY)+")";
+			st.executeQuery(insertQuery);
 			System.out.println("Query executed!");
 			return "Query executed!";
 		}
 		else
-			return "Connection failed!";
+			return "Query failed!";
 
 	}
 
