@@ -20,18 +20,20 @@ public class DatabaseServices {
 			+ "ITEM_PRICE TEXT NOT NULL,"
 			+ "ITEM_CATEGORY TEXT NOT NULL);";
 	
+	private static Statement statement;
+	
 	public static String insertToDB(HashMap<String, String> newItem)
 			throws ClassNotFoundException, URISyntaxException, SQLException {
 		
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
-			Statement st = connection.createStatement();
+			statement = connection.createStatement();
 			String insertQuery = "INSERT INTO ITEMS VALUES('"
 					+ newItem.get(DigitalDiningConstants.ITEM_NUMBER)+"','"
 					+ newItem.get(DigitalDiningConstants.ITEM_NAME)+"','"
 					+ newItem.get(DigitalDiningConstants.ITEM_PRICE)+"','"
 					+ newItem.get(DigitalDiningConstants.ITEM_CATEGORY)+"')";
-			st.execute(insertQuery);
+			statement.execute(insertQuery);
 			System.out.println("Query executed!");
 			connection.close();
 			return "Success";
@@ -45,9 +47,8 @@ public class DatabaseServices {
 		Connection connection = DatabaseConnectivity.getConnected();
 		JSONArray jsonArray = new JSONArray();
 		if (connection != null) {
-			Statement st = connection.createStatement();
 			String query = "SELECT * FROM ITEMS";
-			ResultSet rs = st.executeQuery(query);
+			ResultSet rs = statement.executeQuery(query);
 			while(rs.next()){
 				JSONObject jsonObject = new JSONObject();
 				jsonObject.put(DigitalDiningConstants.ITEM_NUMBER, rs.getString(1));
@@ -64,9 +65,8 @@ public class DatabaseServices {
 	public static String deleteItem(String itemNumber) throws ClassNotFoundException, URISyntaxException, SQLException{
 		Connection connection = DatabaseConnectivity.getConnected();
 		if(connection!=null){
-			Statement st = connection.createStatement();
 			String deleteQuery = "DELETE FROM ITEMS WHERE ITEM_NUMBER='"+itemNumber+"';";
-			st.executeUpdate(deleteQuery);
+			statement.executeUpdate(deleteQuery);
 			connection.close();
 		}
 	return "Success";
