@@ -20,7 +20,7 @@ public class DatabaseServices {
 			+ "ITEM_PRICE TEXT NOT NULL,"
 			+ "ITEM_CATEGORY TEXT NOT NULL);";
 	
-	public static String createTable() throws SQLException{
+	public static String createTable() throws ClassNotFoundException, URISyntaxException,SQLException{
 	Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
