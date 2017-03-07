@@ -24,8 +24,8 @@ public class DatabaseServices {
 	Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
-			String createQuery = "CREATE TABLE EXPENSES (transctionId char(10) notnull autoincrement primary key,"+
-				"date Date notnull, particulars char(100) notnull, amount decimal(7,3) not null, comments char(100), timestamp char(100))";
+			String createQuery = "CREATE TABLE EXPENSES (transctionId char(10) not null autoincrement primary key,"+
+				"date Date not null, particulars char(100) not null, amount decimal(7,3) not null, comments char(100), timestamp char(100))";
 			st.execute(createQuery);
 			System.out.println("Query executed!");
 			connection.close();
