@@ -20,6 +20,23 @@ public class DatabaseServices {
 			+ "ITEM_PRICE TEXT NOT NULL,"
 			+ "ITEM_CATEGORY TEXT NOT NULL);";
 	
+	public static String createTable() throws SQLException{
+	Connection connection = DatabaseConnectivity.getConnected();
+		if (connection != null) {
+			Statement st = connection.createStatement();
+			String createQuery = "CREATE TABLE EXPENSES (transctionId char(10) notnull autoincrement primary key,"+
+				"date Date notnull, particulars char(100) notnull, amount decimal(7,3) not null, comments char(100), timestamp char(100))";
+			st.execute(insertQuery);
+			System.out.println("Query executed!");
+			connection.close();
+			return "Success";
+		}
+		else
+			return "Failed";
+
+	}
+	}
+	
 	/* public static String insertToDB(HashMap<String, String> newItem)
 			throws ClassNotFoundException, URISyntaxException, SQLException {
 		
