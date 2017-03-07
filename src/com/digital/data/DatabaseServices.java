@@ -20,7 +20,7 @@ public class DatabaseServices {
 			+ "ITEM_PRICE TEXT NOT NULL,"
 			+ "ITEM_CATEGORY TEXT NOT NULL);";
 	
-	public static String insertToDB(HashMap<String, String> newItem)
+	/* public static String insertToDB(HashMap<String, String> newItem)
 			throws ClassNotFoundException, URISyntaxException, SQLException {
 		
 		Connection connection = DatabaseConnectivity.getConnected();
@@ -70,6 +70,6 @@ public class DatabaseServices {
 			connection.close();
 		}
 	return "Success";
-	}
+	}*/
 
 }
