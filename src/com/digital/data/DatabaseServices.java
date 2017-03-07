@@ -33,8 +33,6 @@ public class DatabaseServices {
 		}
 		else
 			return "Failed";
-
-	}
 	}
 	
 	/* public static String insertToDB(HashMap<String, String> newItem)
