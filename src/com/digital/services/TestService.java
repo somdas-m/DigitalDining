@@ -33,7 +33,7 @@ public class TestService {
 			return DatabaseServices.createTable();
 		}catch(Exception e){
 			System.out.println("Exception : "+e);
-			return "Failed";
+			return "Failed : "+e;
 		}
 	}
 	/*@POST
