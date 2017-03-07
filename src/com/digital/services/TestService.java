@@ -26,7 +26,7 @@ public class TestService {
 		return "working fine...";
 	}
 
-	@POST
+	/*@POST
 	@Path("/insertNewItem")
 	public String insertNewItem(String payload) {
 		try {
@@ -75,6 +75,6 @@ public class TestService {
 	@Path("/delete/{itemNumber}")
 	public String deleteItem(@PathParam("itemNumber") String itemNumber) throws ClassNotFoundException, URISyntaxException, SQLException{
 		return DatabaseServices.deleteItem(itemNumber);
-	}
+	}*/
 	
 }
