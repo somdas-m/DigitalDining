@@ -26,6 +26,11 @@ public class TestService {
 		return "working fine...";
 	}
 
+	@GET
+	@Path("/create")
+	public String createTables(){
+		return DatabaseServices.createTable();
+	}
 	/*@POST
 	@Path("/insertNewItem")
 	public String insertNewItem(String payload) {
