@@ -29,7 +29,11 @@ public class TestService {
 	@GET
 	@Path("/create")
 	public String createTables(){
-		return DatabaseServices.createTable();
+		try {
+			return DatabaseServices.createTable();
+		}catch(Exception e){
+			System.out.println("Exception : "+e);
+		}
 	}
 	/*@POST
 	@Path("/insertNewItem")
