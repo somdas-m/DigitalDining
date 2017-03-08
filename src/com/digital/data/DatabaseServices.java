@@ -29,7 +29,12 @@ public class DatabaseServices {
 			/*String createQuery = "CREATE TABLE BORROWED (transctionId char(50) not null,"+
 				"name char(100), isSettled boolean not null,timestamp char(100))";*/
 			/*String createQuery = "CREATE TABLE USERS (uname char(50) primary key, upass char(50), key char(50))";*/
-			String createQuery = "CREATE TABLE TOGET (transctionId char(50) not null, name char(100) not null, amount decimal(7,3) not null )";
+			/*String createQuery = "CREATE TABLE TOGET (transctionId char(50) not null, name char(100) not null, amount decimal(7,3) not null )";*/
+			String createQuery = "DROP TABLE EXPENSES";
+			st.execute(createQuery);
+			createQuery = "DROP TABLE BORROWED";
+			st.execute(createQuery);
+			createQuery = "DROP TABLE TOGET";
 			st.execute(createQuery);
 			System.out.println("Query executed!");
 			connection.close();
