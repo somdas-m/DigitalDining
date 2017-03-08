@@ -30,10 +30,10 @@ public class DatabaseServices {
 				"name char(100), isSettled boolean not null,timestamp char(100))";*/
 			/*String createQuery = "CREATE TABLE USERS (uname char(50) primary key, upass char(50), key char(50))";*/
 			/*String createQuery = "CREATE TABLE TOGET (transctionId char(50) not null, name char(100) not null, amount decimal(7,3) not null )";*/
-			String createQuery = "CREATE TABLE MYEXPENSES(transactionId serial primary key, date Date not null, particulars char(100) not null, amount decimal(7,3) not null, category char(50), isdebit boolean not null, dname char(50), dsettled boolean, iscredit boolean not null, cname char(50), csettled boolean, timestamp char(100))";
+			//String createQuery = "CREATE TABLE MYEXPENSES(transactionId serial primary key, date Date not null, particulars char(100) not null, amount decimal(7,3) not null, category char(50), isdebit boolean not null, dname char(50), dsettled boolean, iscredit boolean not null, cname char(50), csettled boolean, timestamp char(100))";
 			String insertQuery = "INSERT INTO MYEXPENSES(date, particulars, amount, category, isdebit, dname, dsettled, iscredit, cname, csettled, timestamp)
 								VALUES({d'2017-08-03'},'test',10.026,'testCat',false,null,false,false,null,false,'testtime');";
-			st.executeQuery(createQuery);
+			st.executeQuery(insertQuery);
 			System.out.println("Query executed!");
 			connection.close();
 			return "Success";
