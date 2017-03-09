@@ -38,8 +38,9 @@ public class DatabaseServices {
 			ResultSet rs = st.executeQuery(getQuery);
 			String result="";
 			while(rs.next()){
-				result = rs.get(0)+" : "+rs.get(1);
+				result = rs.getInt(0)+" : "+rs.getString(1);
 			}
+			rs.close();
 			connection.close();
 			return "Success";
 		}
