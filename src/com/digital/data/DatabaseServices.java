@@ -48,6 +48,28 @@ public class DatabaseServices {
 			return "Failed";
 	}
 	
+	public static boolean insertToDB(Transaction transaction) throws ClassNotFoundException, URISyntaxException, SQLException {
+		try{
+			Connection connection = DatabaseConnectivity.getConnected();
+			if (connection != null) {
+				Statement st = connection.createStatement();
+				String insertQuery = "INSERT INTO MYEXPENSES(date, particulars, amount, category, isdebit, dname, dsettled, iscredit, cname, csettled, timestamp) VALUES (transaction.getDate(), transaction.getParticulars(), transaction.getAmount(), transaction.getCategory(), transaction.getBorrowed(), transaction.getDebitedFrom(), transaction.getDebitSettled(), transaction.getCredited(), transaction.getCreditedTo(), transaction.getCreditSettled(), transaction.getTimestamp());";
+				ResultSet rs = st.executeQuery(insertQuery);
+				System.out.println("Query executed!");
+				return true;
+		 	}
+		   }catch(ClassNotFoundException e){
+			System.out.println("Class Not Found : "+e);
+			return false;
+		   }catch(URISyntaxException e){
+			System.out.println("URISyntaxException : "+e);
+			return false;
+		   }catch(SQLException e){
+			System.out.println("SQL Exception : "+e);
+			return true; //for insertion operation SQLException is thrown
+		   }
+	}
+	
 	/* public static String insertToDB(HashMap<String, String> newItem)
 			throws ClassNotFoundException, URISyntaxException, SQLException {
 		
