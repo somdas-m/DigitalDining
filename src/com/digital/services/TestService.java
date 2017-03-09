@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.digital.constants.DigitalDiningConstants;
+import com.digital.constants.expenseManagerConstants;
 import com.digital.data.DatabaseServices;
 
 @Path("/rest")
