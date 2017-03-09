@@ -38,7 +38,7 @@ public class DatabaseServices {
 			ResultSet rs = st.executeQuery(getQuery);
 			String result="";
 			while(rs.next()){
-				result += rs.getInt(1)+":"+rs.getDate(2)+":"+rs.getString(3)+":"+rs.getDecimal(4)+",";
+				result += rs.getInt(1)+":"+rs.getDate(2)+":"+rs.getString(3)+":"+rs.getFloat(4)+",";
 			}
 			rs.close();
 			connection.close();
