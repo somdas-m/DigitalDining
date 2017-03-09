@@ -38,7 +38,7 @@ public class DatabaseServices {
 			ResultSet rs = st.executeQuery(getQuery);
 			String result="";
 			while(rs.next()){
-				result = rs.getInt(0)+" : "+rs.getString(1);
+				result = rs.getInt(1);
 			}
 			rs.close();
 			connection.close();
