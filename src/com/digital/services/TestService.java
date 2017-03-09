@@ -38,10 +38,26 @@ public class TestService {
 	}
 	
 	@POST
-	@Path("/test")
+	@Path("/insertToDB")
 	public String test(String payload){
-		JSONObject jsonObject = new JSONObject(payload);
-		
+		try{
+			JSONObject jsonObject = new JSONObject(payload);
+			Transaction transaction = new Transaction(); //create this pojo
+			transaction.setDate(jsonObject.getJSONObject(expenseManagerConstants.transactionDate));
+			transaction.setParticulars(jsonObject.getJSONObject(expenseManagerConstants.transactionParticulars));
+			transaction.setAmount(jsonObject.getJSONObject(expenseManagerConstants.transactionAmount));
+			transaction.setCategory(jsonObject.getJSONObject(expenseManagerConstants.transactionCategory)); 
+			transaction.setBorrowed(jsonObject.getJSONObject(expenseManagerConstants.transactionBorrowed));
+			transaction.setDebitedFrom(jsonObject.getJSONObject(expenseManagerConstants.transactionDebitedFrom));
+			transaction.setDebitSettled(jsonObject.getJSONObject(expenseManagerConstants.transactionDebitSettled));
+			transaction.setCredited(jsonObject.getJSONObject(expenseManagerConstants.transactionCredited));
+			transaction.setCreditedTo(jsonObject.getJSONObject(expenseManagerConstants.transactionCreditedTo));
+			transaction.setCreditSettled(jsonObject.getJSONObject(expenseManagerConstants.transactionCreditSettled));
+			transaction.setTimestamp(jsonObject.getJSONObject(expenseManagerConstants.transactionTimestamp));
+			return DatabaseServices.insertToDB(transaction);
+		 }catch(Exception e){
+			return "Exception occured : "+e;
+		}
 	}
 	/*@POST
 	@Path("/insertNewItem")
