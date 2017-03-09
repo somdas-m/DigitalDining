@@ -42,7 +42,7 @@ public class DatabaseServices {
 			}
 			rs.close();
 			connection.close();
-			return "Success";
+			return "Success : "+result;
 		}
 		else
 			return "Failed";
