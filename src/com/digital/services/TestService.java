@@ -36,6 +36,13 @@ public class TestService {
 			return "Failed : "+e;
 		}
 	}
+	
+	@POST
+	@Path("/test")
+	public String test(String payload){
+		JSONObject jsonObject = new JSONObject(payload);
+		
+	}
 	/*@POST
 	@Path("/insertNewItem")
 	public String insertNewItem(String payload) {
