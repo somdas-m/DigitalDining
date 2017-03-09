@@ -34,6 +34,12 @@ public class DatabaseServices {
 			String insertQuery = "INSERT INTO MYEXPENSES(date, particulars, amount, category, isdebit, dname, dsettled, iscredit, cname, csettled, timestamp) VALUES({d'2017-08-03'},'test',10.026,'testCat',false,null,false,false,null,false,'testtime');";
 			st.executeQuery(insertQuery);
 			System.out.println("Query executed!");
+			String getQuery= "Select * from myexpenses";
+			ResultSet rs = st.executeQuery(getQuery);
+			String result="";
+			while(rs.next()){
+				result = rs.get(0)+" : "+rs.get(1);
+			}
 			connection.close();
 			return "Success";
 		}
