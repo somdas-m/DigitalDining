@@ -36,7 +36,8 @@
 			<button ng-click="insertToDB()">Click</button>
 		</form>
 		<button ng-click="getAllfromDB()">GetAll</button>
-		{{allResult}}
+		<kendo-grid options="mainGridOptions">
+        </kendo-grid>
 		<hr />
 		<select kendo-combo-box k-placeholder="'Select product'"
 			k-data-text-field="'ProductName'" k-data-value-field="'ProductID'"
