@@ -21,5 +21,23 @@
 		<button ng-click = "getAllItems()">Get All</button>
 		<br/>{{allItems}}
 	</div>
+	
+	<hr/>
+	
+	<div ng-controller="testController">
+		<form>
+			<input type="date" data-date-format="YYYY-MM-DD" ng-model="date" placeholder="date"/>
+			<input type="text" ng-model="particulars" placeholder="particulars"/>
+			<input type="number" ng-model="amount" step="0.05" placeholder="amount"/>
+			<input type="text" ng-model="category" placeholder="category"/>
+			<input type="checkbox" ng-model="isdebit"/>
+			<input type="text" ng-model="dname" placeholder="dname"/>
+			<input type="checkbox" ng-model="dsettled"/>
+			<input type="checkbox" ng-model="iscredit"/>
+			<input type="text" ng-model="cname" placeholder="cname"/>
+			<input type="checkbox" ng-model="csettled"/>
+			<button ng-click="abc()">Click</button>
+		</form>
+	</div>
 </body>
 </html>
