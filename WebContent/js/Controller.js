@@ -55,7 +55,8 @@ angular
 					$scope.mainGridOptions = {
 						dataSource :{
 							transport : {
-								read : "https://somexpenses.herokuapp.com/service/rest/getAll"
+								read : "https://somexpenses.herokuapp.com/service/rest/getAll",
+								type : "jsonp"
 							},
 							pageSize : 5,
 							serverPaging : true,
