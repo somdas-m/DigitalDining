@@ -16,14 +16,14 @@ public class Transaction {
 	private String  transactionCreditedTo ;
 	private String  transactionCreditSettled ;
 	private String  transactionTimestamp ;
-	public Transaction(String transactionID, Date transactionDate,
+	public Transaction( Date transactionDate,
 			String transactionParticulars, String transactionAmount,
 			String transactionCategory, String transactionBorrowed,
 			String transactionDebitedFrom, String transactionDebitSettled,
 			String transactionCredited, String transactionCreditedTo,
 			String transactionCreditSettled, String transactionTimestamp) {
 		super();
-		this.transactionID = transactionID;
+		//this.transactionID = transactionID;
 		this.transactionDate = transactionDate;
 		this.transactionParticulars = transactionParticulars;
 		this.transactionAmount = transactionAmount;
