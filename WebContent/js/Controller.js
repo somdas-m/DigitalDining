@@ -60,7 +60,7 @@ angular.module("digitalDining",[])
 		   $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 		   $http.get("https://digitaldining.herokuapp.com/service/rest/getAll")
 		   		.success(function(response){
-		   			$scope.allItems = response;
+		   			$scope.allResult = response;
 		   			console.log(response);
 		   		})
 		   		.error(function(response){
