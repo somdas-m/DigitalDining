@@ -43,8 +43,8 @@ public class TestService {
 	public String test(String payload){
 		try{
 			JSONObject jsonObject = new JSONObject(payload);
-			Transaction transaction = new Transaction();
-			/*transaction.setDate(new Date(jsonObject.getJSONObject(expenseManagerConstants.T_Date).toString()));
+			/*Transaction transaction = new Transaction();
+			transaction.setDate(new Date(jsonObject.getJSONObject(expenseManagerConstants.T_Date).toString()));
 			transaction.setParticulars(jsonObject.getJSONObject(expenseManagerConstants.T_Particulars).toString());
 			transaction.setAmount(jsonObject.getJSONObject(expenseManagerConstants.T_Amount).toString());
 			transaction.setCategory(jsonObject.getJSONObject(expenseManagerConstants.T_Category).toString()); 
