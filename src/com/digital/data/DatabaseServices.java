@@ -91,48 +91,8 @@ public class DatabaseServices {
 		return jsonArray.toString();
 	}
 	
-	/* public static String insertToDB(HashMap<String, String> newItem)
-			throws ClassNotFoundException, URISyntaxException, SQLException {
 		
-		Connection connection = DatabaseConnectivity.getConnected();
-		if (connection != null) {
-			Statement st = connection.createStatement();
-			String insertQuery = "INSERT INTO ITEMS VALUES('"
-					+ newItem.get(DigitalDiningConstants.ITEM_NUMBER)+"','"
-					+ newItem.get(DigitalDiningConstants.ITEM_NAME)+"','"
-					+ newItem.get(DigitalDiningConstants.ITEM_PRICE)+"','"
-					+ newItem.get(DigitalDiningConstants.ITEM_CATEGORY)+"')";
-			st.execute(insertQuery);
-			System.out.println("Query executed!");
-			connection.close();
-			return "Success";
-		}
-		else
-			return "Failed";
-
-	}
-	
-	public static JSONArray getAllItems() throws ClassNotFoundException, URISyntaxException, SQLException, JSONException{
-		Connection connection = DatabaseConnectivity.getConnected();
-		JSONArray jsonArray = new JSONArray();
-		if (connection != null) {
-			Statement st = connection.createStatement();
-			String query = "SELECT * FROM ITEMS";
-			ResultSet rs = st.executeQuery(query);
-			while(rs.next()){
-				JSONObject jsonObject = new JSONObject();
-				jsonObject.put(DigitalDiningConstants.ITEM_NUMBER, rs.getString(1));
-				jsonObject.put(DigitalDiningConstants.ITEM_NAME, rs.getString(2));
-				jsonObject.put(DigitalDiningConstants.ITEM_PRICE, rs.getString(3));
-				jsonObject.put(DigitalDiningConstants.ITEM_CATEGORY, rs.getString(4));
-				jsonArray.put(jsonObject);
-			}
-		}
-		connection.close();
-		return jsonArray;
-	}
-	
-	public static String deleteItem(String itemNumber) throws ClassNotFoundException, URISyntaxException, SQLException{
+	/*public static String deleteItem(String itemNumber) throws ClassNotFoundException, URISyntaxException, SQLException{
 		Connection connection = DatabaseConnectivity.getConnected();
 		if(connection!=null){
 			Statement st = connection.createStatement();

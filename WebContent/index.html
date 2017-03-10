@@ -3,42 +3,46 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Digital Dining</title>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2017.1.223/js/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="js/app.js"></script>
 <script src="js/Controller.js"></script>
+<link rel="stylesheet"
+	href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.common-material.min.css" />
+<link rel="stylesheet"
+	href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.material.min.css" />
+<link rel="stylesheet"
+	href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.material.mobile.min.css" />
+
+<!-- <script src="https://kendo.cdn.telerik.com/2017.1.223/js/angular.min.js"></script> -->
+<script
+	src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.all.min.js"></script>
 
 </head>
-<body ng-app="digitalDining" ng-controller="insertController">
-	<div>
-		<input type="text" ng-model="ITEM_NUMBER" placeholder="itemID"/>
-		<input type="text" ng-model="ITEM_NAME" placeholder="itemName"/>
-		<input type="text" ng-model="ITEM_PRICE" placeholder="itemPrice"/>
-		<input type="text" ng-model="ITEM_CATEGORY" placeholder="itemCategory"/>
-		<button ng-click="insert()">Add New Item</button>
-	</div>
-	<hr/>
-	<div ng-controller = "viewController">
-		<button ng-click = "getAllItems()">Get All</button>
-		<br/>{{allItems}}
-	</div>
-	
-	<hr/>
-	
+<body ng-app="expenseManager">
 	<div ng-controller="testController">
 		<form>
-			<input type="date" data-date-format="YYYY-MM-DD" ng-model="date" placeholder="date"/>
-			<input type="text" ng-model="particulars" placeholder="particulars"/>
-			<input type="number" ng-model="amount" step="0.05" placeholder="amount"/>
-			<input type="text" ng-model="category" placeholder="category"/>
-			<input type="checkbox" ng-model="isdebit"/>
-			<input type="text" ng-model="dname" placeholder="dname"/>
-			<input type="checkbox" ng-model="dsettled"/>
-			<input type="checkbox" ng-model="iscredit"/>
-			<input type="text" ng-model="cname" placeholder="cname"/>
-			<input type="checkbox" ng-model="csettled"/>
-			<button ng-click="abc()">Click</button>
+			<input type="date" data-date-format="YYYY-MM-DD" ng-model="date"
+				placeholder="date" /> <input type="text" ng-model="particulars"
+				placeholder="particulars" /> <input type="number" ng-model="amount"
+				step="0.05" placeholder="amount" /> <input type="text"
+				ng-model="category" placeholder="category" /> <input
+				type="checkbox" ng-model="isdebit" /> <input type="text"
+				ng-model="dname" placeholder="dname" /> <input type="checkbox"
+				ng-model="dsettled" /> <input type="checkbox" ng-model="iscredit" />
+			<input type="text" ng-model="cname" placeholder="cname" /> <input
+				type="checkbox" ng-model="csettled" />
+			<button ng-click="insertToDB()">Click</button>
 		</form>
-		<button ng-click="bcd()">GetAll</button>{{allResult}}
+		<button ng-click="getAllfromDB()">GetAll</button>
+		{{allResult}}
+		<hr />
+		<select kendo-combo-box k-placeholder="'Select product'"
+			k-data-text-field="'ProductName'" k-data-value-field="'ProductID'"
+			k-auto-bind="false" k-min-length="3"
+			k-data-source="productsDataSource" style="width: 100%">
+		</select>
 	</div>
 </body>
 </html>
