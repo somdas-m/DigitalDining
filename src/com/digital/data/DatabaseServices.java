@@ -54,7 +54,7 @@ public class DatabaseServices {
 			if (connection != null) {
 				Statement st = connection.createStatement();
 				//return transaction.toString();
-				String insertQuery = "INSERT INTO MYEXPENSES(date, particulars, amount, category, isdebit, dname, dsettled, iscredit, cname, csettled, timestamp) VALUES (transaction.getDate(), transaction.getParticulars(), transaction.getAmount(), transaction.getCategory(), transaction.getBorrowed(), transaction.getDebitedFrom(), transaction.getDebitSettled(), transaction.getCredited(), transaction.getCreditedTo(), transaction.getCreditSettled(), transaction.getTimestamp());";
+				String insertQuery = "INSERT INTO MYEXPENSES(date, particulars, amount, category, isdebit, dname, dsettled, iscredit, cname, csettled, timestamp) VALUES ("+transaction.getTransactionDate()+","+transaction.getTransactionParticulars()+","+ transaction.getTransactionAmount()+","+transaction.getTransactionCategory()+","+ transaction.isTransactionBorrowed()+","+transaction.getTransactionDebitedFrom()+","+transaction.isTransactionDebitSettled()+","+ transaction.isTransactionCredited()+","+transaction.getTransactionCreditedTo()+","+transaction.isTransactionCreditSettled()+","+transaction.getTransactionTimestamp()+");";
 				ResultSet rs = st.executeQuery(insertQuery);
 				System.out.println("Query executed!");
 				return "Success";
