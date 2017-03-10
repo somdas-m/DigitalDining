@@ -69,6 +69,9 @@ public class DatabaseServices {
 			System.out.println("SQL Exception : "+e);
 			return true; //for insertion operation SQLException is thrown
 		   }
+		 finally{
+		 return false;
+		 }
 	}
 	
 	/* public static String insertToDB(HashMap<String, String> newItem)
