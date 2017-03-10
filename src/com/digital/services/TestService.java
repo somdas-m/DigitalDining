@@ -66,6 +66,21 @@ public class TestService {
 			return "Exception occured : "+e;
 		}
 	}
+	
+	@GET
+	@Path("/getAll")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getAllItems(){
+		String result = null;
+		try {
+			result = DatabaseServices.getAllItems().toString();
+		} catch (ClassNotFoundException | URISyntaxException | SQLException
+				| JSONException e) {
+			result = "Error : "+e;
+			e.printStackTrace();
+		}
+		return result;
+	}
 	/*@POST
 	@Path("/insertNewItem")
 	public String insertNewItem(String payload) {
