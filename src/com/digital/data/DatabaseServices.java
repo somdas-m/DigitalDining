@@ -11,7 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.digital.constants.DigitalDiningConstants;
+import com.digital.constants.expenseManagerConstants;
 
 public class DatabaseServices {
 	private static String createQuery = "CREATE TABLE ITEMS("
