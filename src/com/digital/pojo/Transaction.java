@@ -4,90 +4,110 @@ import java.sql.Date;
 
 public class Transaction {
 
-	private static String  transactionID ;
-	private static Date    transactionDate ;
-	private static String  transactionParticulars ;
-	private static String  transactionAmount ;
-	private static String  transactionCategory ;
-	private static String  transactionBorrowed ;
-	private static String  transactionDebitedFrom ;
-	private static String  transactionDebitSettled ;
-	private static String  transactionCredited ;
-	private static String  transactionCreditedTo ;
-	private static String  transactionCreditSettled ;
-	private static String  transactionTimestamp ;
-	public static String getTransactionID() {
+	private String  transactionID ;
+	private Date    transactionDate ;
+	private String  transactionParticulars ;
+	private String  transactionAmount ;
+	private String  transactionCategory ;
+	private String  transactionBorrowed ;
+	private String  transactionDebitedFrom ;
+	private String  transactionDebitSettled ;
+	private String  transactionCredited ;
+	private String  transactionCreditedTo ;
+	private String  transactionCreditSettled ;
+	private String  transactionTimestamp ;
+	public Transaction(String transactionID, Date transactionDate,
+			String transactionParticulars, String transactionAmount,
+			String transactionCategory, String transactionBorrowed,
+			String transactionDebitedFrom, String transactionDebitSettled,
+			String transactionCredited, String transactionCreditedTo,
+			String transactionCreditSettled, String transactionTimestamp) {
+		super();
+		this.transactionID = transactionID;
+		this.transactionDate = transactionDate;
+		this.transactionParticulars = transactionParticulars;
+		this.transactionAmount = transactionAmount;
+		this.transactionCategory = transactionCategory;
+		this.transactionBorrowed = transactionBorrowed;
+		this.transactionDebitedFrom = transactionDebitedFrom;
+		this.transactionDebitSettled = transactionDebitSettled;
+		this.transactionCredited = transactionCredited;
+		this.transactionCreditedTo = transactionCreditedTo;
+		this.transactionCreditSettled = transactionCreditSettled;
+		this.transactionTimestamp = transactionTimestamp;
+	}
+	public String getTransactionID() {
 		return transactionID;
 	}
-	public static void setTransactionID(String transactionID) {
-		Transaction.transactionID = transactionID;
+	public void setTransactionID(String transactionID) {
+		this.transactionID = transactionID;
 	}
-	public static Date getTransactionDate() {
+	public Date getTransactionDate() {
 		return transactionDate;
 	}
-	public static void setTransactionDate(Date transactionDate) {
-		Transaction.transactionDate = transactionDate;
+	public void setTransactionDate(Date transactionDate) {
+		this.transactionDate = transactionDate;
 	}
-	public static String getTransactionParticulars() {
+	public String getTransactionParticulars() {
 		return transactionParticulars;
 	}
-	public static void setTransactionParticulars(String transactionParticulars) {
-		Transaction.transactionParticulars = transactionParticulars;
+	public void setTransactionParticulars(String transactionParticulars) {
+		this.transactionParticulars = transactionParticulars;
 	}
-	public static String getTransactionAmount() {
+	public String getTransactionAmount() {
 		return transactionAmount;
 	}
-	public static void setTransactionAmount(String transactionAmount) {
-		Transaction.transactionAmount = transactionAmount;
+	public void setTransactionAmount(String transactionAmount) {
+		this.transactionAmount = transactionAmount;
 	}
-	public static String getTransactionCategory() {
+	public String getTransactionCategory() {
 		return transactionCategory;
 	}
-	public static void setTransactionCategory(String transactionCategory) {
-		Transaction.transactionCategory = transactionCategory;
+	public void setTransactionCategory(String transactionCategory) {
+		this.transactionCategory = transactionCategory;
 	}
-	public static String getTransactionBorrowed() {
+	public String getTransactionBorrowed() {
 		return transactionBorrowed;
 	}
-	public static void setTransactionBorrowed(String transactionBorrowed) {
-		Transaction.transactionBorrowed = transactionBorrowed;
+	public void setTransactionBorrowed(String transactionBorrowed) {
+		this.transactionBorrowed = transactionBorrowed;
 	}
-	public static String getTransactionDebitedFrom() {
+	public String getTransactionDebitedFrom() {
 		return transactionDebitedFrom;
 	}
-	public static void setTransactionDebitedFrom(String transactionDebitedFrom) {
-		Transaction.transactionDebitedFrom = transactionDebitedFrom;
+	public void setTransactionDebitedFrom(String transactionDebitedFrom) {
+		this.transactionDebitedFrom = transactionDebitedFrom;
 	}
-	public static String getTransactionDebitSettled() {
+	public String getTransactionDebitSettled() {
 		return transactionDebitSettled;
 	}
-	public static void setTransactionDebitSettled(String transactionDebitSettled) {
-		Transaction.transactionDebitSettled = transactionDebitSettled;
+	public void setTransactionDebitSettled(String transactionDebitSettled) {
+		this.transactionDebitSettled = transactionDebitSettled;
 	}
-	public static String getTransactionCredited() {
+	public String getTransactionCredited() {
 		return transactionCredited;
 	}
-	public static void setTransactionCredited(String transactionCredited) {
-		Transaction.transactionCredited = transactionCredited;
+	public void setTransactionCredited(String transactionCredited) {
+		this.transactionCredited = transactionCredited;
 	}
-	public static String getTransactionCreditedTo() {
+	public String getTransactionCreditedTo() {
 		return transactionCreditedTo;
 	}
-	public static void setTransactionCreditedTo(String transactionCreditedTo) {
-		Transaction.transactionCreditedTo = transactionCreditedTo;
+	public void setTransactionCreditedTo(String transactionCreditedTo) {
+		this.transactionCreditedTo = transactionCreditedTo;
 	}
-	public static String getTransactionCreditSettled() {
+	public String getTransactionCreditSettled() {
 		return transactionCreditSettled;
 	}
-	public static void setTransactionCreditSettled(String transactionCreditSettled) {
-		Transaction.transactionCreditSettled = transactionCreditSettled;
+	public void setTransactionCreditSettled(String transactionCreditSettled) {
+		this.transactionCreditSettled = transactionCreditSettled;
 	}
-	public static String getTransactionTimestamp() {
+	public String getTransactionTimestamp() {
 		return transactionTimestamp;
 	}
-	public static void setTransactionTimestamp(String transactionTimestamp) {
-		Transaction.transactionTimestamp = transactionTimestamp;
+	public void setTransactionTimestamp(String transactionTimestamp) {
+		this.transactionTimestamp = transactionTimestamp;
 	}
 	
-	
+
 }
