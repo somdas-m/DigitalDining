@@ -44,17 +44,17 @@ public class TestService {
 		try{
 			JSONObject jsonObject = new JSONObject(payload);
 			Transaction transaction = new Transaction(); //create this pojo
-			transaction.setDate(jsonObject.getJSONObject(expenseManagerConstants.T_Date));
-			transaction.setParticulars(jsonObject.getJSONObject(expenseManagerConstants.T_Particulars));
-			transaction.setAmount(jsonObject.getJSONObject(expenseManagerConstants.T_Amount));
-			transaction.setCategory(jsonObject.getJSONObject(expenseManagerConstants.T_Category)); 
-			transaction.setBorrowed(jsonObject.getJSONObject(expenseManagerConstants.T_isDebit));
-			transaction.setDebitedFrom(jsonObject.getJSONObject(expenseManagerConstants.T_DebitedFrom));
-			transaction.setDebitSettled(jsonObject.getJSONObject(expenseManagerConstants.T_DebitSettled));
-			transaction.setCredited(jsonObject.getJSONObject(expenseManagerConstants.T_isCredit));
-			transaction.setCreditedTo(jsonObject.getJSONObject(expenseManagerConstants.T_CreditTo));
-			transaction.setCreditSettled(jsonObject.getJSONObject(expenseManagerConstants.T_CreditSettled));
-			transaction.setTimestamp(jsonObject.getJSONObject(expenseManagerConstants.T_Timestamp));
+			transaction.setDate(new Date(jsonObject.getJSONObject(expenseManagerConstants.T_Date).toString()));
+			transaction.setParticulars(jsonObject.getJSONObject(expenseManagerConstants.T_Particulars).toString());
+			transaction.setAmount(jsonObject.getJSONObject(expenseManagerConstants.T_Amount).toString());
+			transaction.setCategory(jsonObject.getJSONObject(expenseManagerConstants.T_Category).toString()); 
+			transaction.setBorrowed(jsonObject.getJSONObject(expenseManagerConstants.T_isDebit).toString());
+			transaction.setDebitedFrom(jsonObject.getJSONObject(expenseManagerConstants.T_DebitedFrom).toString());
+			transaction.setDebitSettled(jsonObject.getJSONObject(expenseManagerConstants.T_DebitSettled).toString());
+			transaction.setCredited(jsonObject.getJSONObject(expenseManagerConstants.T_isCredit).toString());
+			transaction.setCreditedTo(jsonObject.getJSONObject(expenseManagerConstants.T_CreditTo).toString());
+			transaction.setCreditSettled(jsonObject.getJSONObject(expenseManagerConstants.T_CreditSettled).toString());
+			transaction.setTimestamp(jsonObject.getJSONObject(expenseManagerConstants.T_Timestamp).toString());
 			return transaction.toString();
 			//return DatabaseServices.insertToDB(transaction);
 		 }catch(Exception e){
