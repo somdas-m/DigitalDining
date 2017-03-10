@@ -108,6 +108,15 @@ public class Transaction {
 	public void setTransactionTimestamp(String transactionTimestamp) {
 		this.transactionTimestamp = transactionTimestamp;
 	}
-	
+	@Override
+	public String toString() {
+		return "Transaction [transactionID=" + transactionID + ", transactionDate=" + transactionDate
+				+ ", transactionParticulars=" + transactionParticulars + ", transactionAmount=" + transactionAmount
+				+ ", transactionCategory=" + transactionCategory + ", transactionBorrowed=" + transactionBorrowed
+				+ ", transactionDebitedFrom=" + transactionDebitedFrom + ", transactionDebitSettled="
+				+ transactionDebitSettled + ", transactionCredited=" + transactionCredited + ", transactionCreditedTo="
+				+ transactionCreditedTo + ", transactionCreditSettled=" + transactionCreditSettled
+				+ ", transactionTimestamp=" + transactionTimestamp + "]";
+	}
 
 }
