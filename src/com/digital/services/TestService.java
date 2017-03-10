@@ -12,6 +12,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.sql.Date;
@@ -79,13 +80,13 @@ public class TestService {
 	@GET
 	@Path("/getAll")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String getAllItems(){
-		String result = null;
+	public JSONArray getAllItems(){
+		JSONArray result = null;
 		try {
-			result = DatabaseServices.getAllItems().toString();
+			result = DatabaseServices.getAllItems();
 		} catch (ClassNotFoundException | URISyntaxException | SQLException
 				| JSONException e) {
-			result = "Error : "+e;
+			
 			e.printStackTrace();
 		}
 		return result;
