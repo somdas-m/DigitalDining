@@ -31,7 +31,7 @@ angular.module("digitalDining",[])
 		   		});
 	   };
 	   })
-	   .controller("testController",function($scope){
+	   .controller("testController",function($scope,$http){
 			$scope.abc = function(){
 				//console.log($scope.date.getDay());
 				var payload = {};
