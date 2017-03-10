@@ -58,7 +58,7 @@ angular.module("digitalDining",[])
 			}
 			 $scope.bcd=function(){
 		   $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-		   $http.get("https://digitaldining.herokuapp.com/service/rest/getAll")
+		   $http.get("https://somexpenses.herokuapp.com/service/rest/getAll")
 		   		.success(function(response){
 		   			$scope.allResult = response;
 		   			console.log(response);
