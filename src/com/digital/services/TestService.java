@@ -70,7 +70,7 @@ public class TestService {
 	@Path("/insertToDB")
 	public String test(Transaction transaction){
 		try{
-			return DatabaseServices.insertToDB(transaction);
+			return DatabaseServices.insertToDB(transaction).toString();
 		 }catch(Exception e){
 			System.out.println("Exeption found : "+e);
 			return "failed : "+e;
