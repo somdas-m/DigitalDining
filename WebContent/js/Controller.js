@@ -53,8 +53,7 @@ angular
 										});
 					};
 					$scope.mainGridOptions = {
-						dataSource : {
-							type : "odata",
+						dataSource :{
 							transport : {
 								read : "https://somexpenses.herokuapp.com/service/rest/getAll"
 							},
