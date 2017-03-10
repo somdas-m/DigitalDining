@@ -72,7 +72,7 @@ public class DatabaseServices {
 			while(rs.next()){
 				JSONObject jsonObject = new JSONObject();
 				jsonObject.put(expenseManagerConstants.T_ID,rs.getInt(1));
-				jsonObject.put(expenseManagerConstants.T_Date,rs.getLong(2));
+				jsonObject.put(expenseManagerConstants.T_Date,rs.getString(2));
 				jsonObject.put(expenseManagerConstants.T_Particulars,rs.getString(3));
 				jsonObject.put(expenseManagerConstants.T_Amount,rs.getDouble(4));
 				jsonObject.put(expenseManagerConstants.T_Category,rs.getString(5));
