@@ -49,34 +49,46 @@ public class DatabaseServices {
 			return "Failed";
 	}
 	
-	public static String insertToDB(Transaction transaction) throws ClassNotFoundException, URISyntaxException, SQLException {
+	public static boolean insertToDB(Transaction transaction) throws ClassNotFoundException, URISyntaxException, SQLException {
 			Connection connection = DatabaseConnectivity.getConnected();
 			if (connection != null) {
 				Statement st = connection.createStatement();
 				String insertQuery = "INSERT INTO MYEXPENSES(date, particulars, amount, category, isdebit, dname, dsettled, iscredit, cname, csettled, timestamp) VALUES (to_date('"+transaction.getTransactionDate()+"', 'YYYY-MM-DD'),'"+transaction.getTransactionParticulars()+"','"+ transaction.getTransactionAmount()+"','"+transaction.getTransactionCategory()+"',"+ transaction.isTransactionBorrowed()+",'"+transaction.getTransactionDebitedFrom()+"',"+transaction.isTransactionDebitSettled()+","+ transaction.isTransactionCredited()+",'"+transaction.getTransactionCreditedTo()+"',"+transaction.isTransactionCreditSettled()+",'"+transaction.getTransactionTimestamp()+"');";
 				st.executeUpdate(insertQuery);
-				System.out.println("Query executed!");
-				return "Success";
+				return true;
 		 	}
 			else{
-				return "failed";
+				return false;
 			}
 	}
 	
 	public static String getAllItems() throws ClassNotFoundException, URISyntaxException, SQLException, JSONException{
 		Connection connection = DatabaseConnectivity.getConnected();
 		JSONArray jsonArray = new JSONArray();
-		String result = "";
 		if (connection != null) {
 			Statement st = connection.createStatement();
 			String query = "SELECT * FROM MYEXPENSES";
 			ResultSet rs = st.executeQuery(query);
 			while(rs.next()){
-				result+=rs.getString(2)+",";
+				JSONObject jsonObject = new JSONObject();
+				jsonObject.put(expenseManagerConstants.T_ID,rs.getInt(1));
+				jsonObject.put(expenseManagerConstants.T_Date,rs.getLong(2));
+				jsonObject.put(expenseManagerConstants.T_Particulars,rs.getString(3));
+				jsonObject.put(expenseManagerConstants.T_Amount,rs.getDouble(4));
+				jsonObject.put(expenseManagerConstants.T_Category,rs.getString(5));
+				jsonObject.put(expenseManagerConstants.T_isDebit,rs.getBoolean(6));
+				jsonObject.put(expenseManagerConstants.T_DebitedFrom,rs.getString(7));
+				jsonObject.put(expenseManagerConstants.T_DebitSettled,rs.getBoolean(8));
+				jsonObject.put(expenseManagerConstants.T_isCredit,rs.getBoolean(9));
+				jsonObject.put(expenseManagerConstants.T_CreditTo,rs.getString(10));
+				jsonObject.put(expenseManagerConstants.T_CreditSettled,rs.getBoolean(11));
+				jsonObject.put(expenseManagerConstants.T_Timestamp,rs.getString(12));
+				jsonArray.put(jsonObject);
 			}
+			rs.close();
 		}
 		connection.close();
-		return result;
+		return jsonArray.toString();
 	}
 	
 	/* public static String insertToDB(HashMap<String, String> newItem)

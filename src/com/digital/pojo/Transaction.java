@@ -119,6 +119,4 @@ public class Transaction {
 				+ transactionCreditedTo + ", transactionCreditSettled=" + transactionCreditSettled
 				+ ", transactionTimestamp=" + transactionTimestamp + "]";
 	}
-	
-	
 }
