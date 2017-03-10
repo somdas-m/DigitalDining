@@ -68,12 +68,13 @@ public class TestService {
 	}*/
 	@POST
 	@Path("/insertToDB")
-	public boolean test(Transaction transaction){
+	public String test(Transaction transaction){
 		try{
-			return DatabaseServices.insertToDB(transaction);
+			return transaction.toString();
+			//return DatabaseServices.insertToDB(transaction);
 		 }catch(Exception e){
 			System.out.println("Exeption found : "+e);
-			return false;
+			return "false";
 		}
 	}
 	
