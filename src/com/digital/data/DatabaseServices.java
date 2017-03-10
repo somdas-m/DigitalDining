@@ -62,7 +62,7 @@ public class DatabaseServices {
 			}
 	}
 	
-	public static String getAllItems() throws ClassNotFoundException, URISyntaxException, SQLException, JSONException{
+	public static JSONArray getAllItems() throws ClassNotFoundException, URISyntaxException, SQLException, JSONException{
 		Connection connection = DatabaseConnectivity.getConnected();
 		JSONArray jsonArray = new JSONArray();
 		if (connection != null) {
@@ -88,7 +88,7 @@ public class DatabaseServices {
 			rs.close();
 		}
 		connection.close();
-		return jsonArray.toString();
+		return jsonArray;
 	}
 	
 		
