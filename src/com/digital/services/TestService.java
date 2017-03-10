@@ -55,8 +55,8 @@ public class TestService {
 			transaction.setCreditedTo(jsonObject.getJSONObject(expenseManagerConstants.T_CreditTo).toString());
 			transaction.setCreditSettled(jsonObject.getJSONObject(expenseManagerConstants.T_CreditSettled).toString());
 			transaction.setTimestamp(jsonObject.getJSONObject(expenseManagerConstants.T_Timestamp).toString());*/
-			//new Date(jsonObject.optString(expenseManagerConstants.T_Date))
-			Transaction transaction = new Transaction(null,jsonObject.optString(expenseManagerConstants.T_Particulars),jsonObject.optString(expenseManagerConstants.T_Amount),jsonObject.optString(expenseManagerConstants.T_Category),jsonObject.optString(expenseManagerConstants.T_isDebit),jsonObject.optString(expenseManagerConstants.T_DebitedFrom),jsonObject.optString(expenseManagerConstants.T_DebitSettled),jsonObject.optString(expenseManagerConstants.T_isCredit),jsonObject.optString(expenseManagerConstants.T_CreditTo),jsonObject.optString(expenseManagerConstants.T_CreditSettled),jsonObject.optString(expenseManagerConstants.T_Timestamp));
+			Date dat = new Date(jsonObject.optString(expenseManagerConstants.T_Date))
+			Transaction transaction = new Transaction(dat,jsonObject.optString(expenseManagerConstants.T_Particulars),jsonObject.optString(expenseManagerConstants.T_Amount),jsonObject.optString(expenseManagerConstants.T_Category),jsonObject.optString(expenseManagerConstants.T_isDebit),jsonObject.optString(expenseManagerConstants.T_DebitedFrom),jsonObject.optString(expenseManagerConstants.T_DebitSettled),jsonObject.optString(expenseManagerConstants.T_isCredit),jsonObject.optString(expenseManagerConstants.T_CreditTo),jsonObject.optString(expenseManagerConstants.T_CreditSettled),jsonObject.optString(expenseManagerConstants.T_Timestamp));
 			return transaction.toString();
 			//return DatabaseServices.insertToDB(transaction);
 		 }catch(Exception e){
