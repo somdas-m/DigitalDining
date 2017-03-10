@@ -30,4 +30,22 @@ angular.module("digitalDining",[])
 		   			console.log("Internal error : "+response);
 		   		});
 	   };
+	   })
+	   .controller("testController",function($scope){
+			$scope.abc = function(){
+				//console.log($scope.date.getDay());
+				var payload = {};
+				payload.transactionDate = $scope.date,
+				payload.transactionParticulars = $scope.particulars,
+				payload.transactionAmount = $scope.amount,
+				payload.transactionCategory = $scope.category,
+				payload.transactionBorrowed = $scope.isdebit,
+				payload.transactionDebitedFrom = $scope.dname,
+				payload.transactionDebitSettled = $scope.dsettled,
+				payload.transactionCredited = $scope.iscredit,
+				payload.transactionCreditedTo = $scope.cname,
+				payload.transactionCreditSettled = $scope.csettled,
+				payload.transactionTimestamp = new Date();
+				console.log(payload);
+			}
 	   });
