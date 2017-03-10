@@ -38,9 +38,9 @@ public class TestService {
 		}
 	}
 	
-	@POST
+	/*@POST
 	@Path("/insertToDB")
-	public String test(String payload){
+	public boolean test(String payload){
 		try{
 			JSONObject jsonObject = new JSONObject(payload);
 			/*Transaction transaction = new Transaction();
@@ -54,16 +54,26 @@ public class TestService {
 			transaction.setCredited(jsonObject.getJSONObject(expenseManagerConstants.T_isCredit).toString());
 			transaction.setCreditedTo(jsonObject.getJSONObject(expenseManagerConstants.T_CreditTo).toString());
 			transaction.setCreditSettled(jsonObject.getJSONObject(expenseManagerConstants.T_CreditSettled).toString());
-			transaction.setTimestamp(jsonObject.getJSONObject(expenseManagerConstants.T_Timestamp).toString());*/
+			transaction.setTimestamp(jsonObject.getJSONObject(expenseManagerConstants.T_Timestamp).toString());
 			//Date dat = new Date(jsonObject.optString(expenseManagerConstants.T_Date));
 			long millis=System.currentTimeMillis();  
 			Date dat = new Date(millis);
-			Transaction transaction = new Transaction(dat,jsonObject.optString(expenseManagerConstants.T_Particulars),jsonObject.optString(expenseManagerConstants.T_Amount),jsonObject.optString(expenseManagerConstants.T_Category),jsonObject.optString(expenseManagerConstants.T_isDebit),jsonObject.optString(expenseManagerConstants.T_DebitedFrom),jsonObject.optString(expenseManagerConstants.T_DebitSettled),jsonObject.optString(expenseManagerConstants.T_isCredit),jsonObject.optString(expenseManagerConstants.T_CreditTo),jsonObject.optString(expenseManagerConstants.T_CreditSettled),jsonObject.optString(expenseManagerConstants.T_Timestamp));
+			Transaction transaction = new Transaction(dat,jsonObject.optString(expenseManagerConstants.T_Particulars),jsonObject.optString(expenseManagerConstants.T_Amount),jsonObject.optString(expenseManagerConstants.T_Category),jsonObject.opt(expenseManagerConstants.T_isDebit),jsonObject.optString(expenseManagerConstants.T_DebitedFrom),jsonObject.optString(expenseManagerConstants.T_DebitSettled),jsonObject.optString(expenseManagerConstants.T_isCredit),jsonObject.optString(expenseManagerConstants.T_CreditTo),jsonObject.optString(expenseManagerConstants.T_CreditSettled),jsonObject.optString(expenseManagerConstants.T_Timestamp));
 			//return transaction.toString();
 			return DatabaseServices.insertToDB(transaction);
 		 }catch(Exception e){
 			System.out.println("Exeption found : "+e);
-			return "Exception occured : "+e;
+			return false;
+		}
+	}*/
+	@POST
+	@Path("/insertToDB")
+	public boolean test(Transaction transaction){
+		try{
+			return DatabaseServices.insertToDB(transaction);
+		 }catch(Exception e){
+			System.out.println("Exeption found : "+e);
+			return false;
 		}
 	}
 	
@@ -81,51 +91,7 @@ public class TestService {
 		}
 		return result;
 	}
-	/*@POST
-	@Path("/insertNewItem")
-	public String insertNewItem(String payload) {
-		try {
-			JSONObject jsonObject = new JSONObject(payload);
-			HashMap<String, String> newItem = new HashMap<String, String>();
-			newItem.put(DigitalDiningConstants.ITEM_NUMBER,
-					jsonObject.optString(DigitalDiningConstants.ITEM_NUMBER));
-			newItem.put(DigitalDiningConstants.ITEM_NAME,
-					jsonObject.optString(DigitalDiningConstants.ITEM_NAME));
-			newItem.put(DigitalDiningConstants.ITEM_PRICE,
-					jsonObject.optString(DigitalDiningConstants.ITEM_PRICE));
-			newItem.put(DigitalDiningConstants.ITEM_CATEGORY,
-					jsonObject.optString(DigitalDiningConstants.ITEM_CATEGORY));
-			return DatabaseServices.insertToDB(newItem);
-		} catch (JSONException e) {
-			System.out.println("JSONException : " + e);
-			return "JSONException : " + e;
-		} catch (ClassNotFoundException e) {
-			System.out.println("ClassNotFoundException");
-			System.out.println("DriverClass Not Found! " + e);
-			return "DriverClass Not Found! " + e;
-		} catch (URISyntaxException e) {
-			System.out.println("URISyntax Exception : " + e);
-			return "URISyntax Exception : " + e;
-		} catch (SQLException e) {
-			System.out.println("SQL Exception : " + e);
-			return "SQL Exception : " + e;
-		}
-	}
-	
-	@GET
-	@Path("/getAll")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String getAllItems(){
-		String result = null;
-		try {
-			result = DatabaseServices.getAllItems().toString();
-		} catch (ClassNotFoundException | URISyntaxException | SQLException
-				| JSONException e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
-	
+	/*
 	@GET
 	@Path("/delete/{itemNumber}")
 	public String deleteItem(@PathParam("itemNumber") String itemNumber) throws ClassNotFoundException, URISyntaxException, SQLException{
