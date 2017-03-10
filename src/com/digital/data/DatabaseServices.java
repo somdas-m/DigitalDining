@@ -53,12 +53,10 @@ public class DatabaseServices {
 			Connection connection = DatabaseConnectivity.getConnected();
 			if (connection != null) {
 				Statement st = connection.createStatement();
-				//return transaction.toString();
 				String insertQuery = "INSERT INTO MYEXPENSES(date, particulars, amount, category, isdebit, dname, dsettled, iscredit, cname, csettled, timestamp) VALUES (to_date('"+transaction.getTransactionDate()+"', 'YYYY-MM-DD'),'"+transaction.getTransactionParticulars()+"','"+ transaction.getTransactionAmount()+"','"+transaction.getTransactionCategory()+"',"+ transaction.isTransactionBorrowed()+",'"+transaction.getTransactionDebitedFrom()+"',"+transaction.isTransactionDebitSettled()+","+ transaction.isTransactionCredited()+",'"+transaction.getTransactionCreditedTo()+"',"+transaction.isTransactionCreditSettled()+",'"+transaction.getTransactionTimestamp()+"');";
-				ResultSet rs = st.executeQuery(insertQuery);
+				st.executeUpdate(insertQuery);
 				System.out.println("Query executed!");
 				return "Success";
-				//return true;
 		 	}
 			else{
 				return "failed";
