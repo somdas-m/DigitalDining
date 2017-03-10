@@ -3,7 +3,6 @@ angular
 		.controller(
 				"testController",
 				function($scope, $http) {
-					$http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 					/*$scope.productsDataSource = {
 						type : "odata",
 						serverFiltering : true,
