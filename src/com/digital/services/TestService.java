@@ -59,8 +59,8 @@ public class TestService {
 			long millis=System.currentTimeMillis();  
 			Date dat = new Date(millis);
 			Transaction transaction = new Transaction(dat,jsonObject.optString(expenseManagerConstants.T_Particulars),jsonObject.optString(expenseManagerConstants.T_Amount),jsonObject.optString(expenseManagerConstants.T_Category),jsonObject.optString(expenseManagerConstants.T_isDebit),jsonObject.optString(expenseManagerConstants.T_DebitedFrom),jsonObject.optString(expenseManagerConstants.T_DebitSettled),jsonObject.optString(expenseManagerConstants.T_isCredit),jsonObject.optString(expenseManagerConstants.T_CreditTo),jsonObject.optString(expenseManagerConstants.T_CreditSettled),jsonObject.optString(expenseManagerConstants.T_Timestamp));
-			return transaction.toString();
-			//return DatabaseServices.insertToDB(transaction);
+			//return transaction.toString();
+			return DatabaseServices.insertToDB(transaction);
 		 }catch(Exception e){
 			System.out.println("Exeption found : "+e);
 			return "Exception occured : "+e;
