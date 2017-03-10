@@ -77,11 +77,11 @@ public class DatabaseServices {
 	public static String getAllItems() throws ClassNotFoundException, URISyntaxException, SQLException, JSONException{
 		Connection connection = DatabaseConnectivity.getConnected();
 		JSONArray jsonArray = new JSONArray();
+		String result = "";
 		if (connection != null) {
 			Statement st = connection.createStatement();
 			String query = "SELECT * FROM MYEXPENSES";
 			ResultSet rs = st.executeQuery(query);
-			String result = "";
 			while(rs.next()){
 				result+=rs.getString(2)+",";
 			}
