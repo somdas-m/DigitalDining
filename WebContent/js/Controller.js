@@ -56,4 +56,15 @@ angular.module("digitalDining",[])
 		   			console.log("Internal error : "+response);
 		   		});
 			}
+			 $scope.bcd=function(){
+		   $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+		   $http.get("https://digitaldining.herokuapp.com/service/rest/getAll")
+		   		.success(function(response){
+		   			$scope.allItems = response;
+		   			console.log(response);
+		   		})
+		   		.error(function(response){
+		   			console.log("Internal error : "+response);
+		   		});
+	   };
 	   });
