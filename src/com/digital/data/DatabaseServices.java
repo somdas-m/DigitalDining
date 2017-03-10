@@ -50,7 +50,6 @@ public class DatabaseServices {
 	}
 	
 	public static String insertToDB(Transaction transaction) throws ClassNotFoundException, URISyntaxException, SQLException {
-		try{
 			Connection connection = DatabaseConnectivity.getConnected();
 			if (connection != null) {
 				Statement st = connection.createStatement();
@@ -60,19 +59,9 @@ public class DatabaseServices {
 				return "Success";
 				//return true;
 		 	}
-		   }catch(ClassNotFoundException e){
-			System.out.println("Class Not Found : "+e);
-			return "Class Not Found : "+e;
-		   }catch(URISyntaxException e){
-			System.out.println("URISyntaxException : "+e);
-			return "URISyntaxException : "+e;
-		   }catch(SQLException e){
-			System.out.println("SQL Exception : "+e);
-			return "SQL Exception : "+e; //for insertion operation SQLException is thrown
-		   }
-		 finally{
-		 return "buhaha";
-		 }
+			else{
+				return "failed";
+			}
 	}
 	
 	public static String getAllItems() throws ClassNotFoundException, URISyntaxException, SQLException, JSONException{
