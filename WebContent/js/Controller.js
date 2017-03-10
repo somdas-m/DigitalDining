@@ -45,7 +45,6 @@ angular
 										"https://somexpenses.herokuapp.com/service/rest/getAll")
 								.success(function(response) {
 									$scope.allResult = response;
-									dataCenter = response;
 									console.log(response);
 								}).error(
 										function(response) {
@@ -54,7 +53,14 @@ angular
 										});
 					};
 					$scope.mainGridOptions = {
-						dataSource :dataCenter,
+						dataSource :{
+							transport : {
+								read : "https://somexpenses.herokuapp.com/service/rest/getAll"
+							},
+							pageSize : 5,
+							serverPaging : true,
+							serverSorting : true
+						},
 						sortable : true,
 						pageable : true,
 						columns : [ {
