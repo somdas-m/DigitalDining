@@ -79,14 +79,14 @@ public class TestService {
 	
 	@GET
 	@Path("/getAll")
-	@Produces(MediaType.APPLICATION_JSON)
-	public JSONArray getAllItems(){
-		JSONArray result = null;
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getAllItems(){
+		String result = null;
 		try {
-			result = DatabaseServices.getAllItems();
+			result = DatabaseServices.getAllItems().toString();
 		} catch (ClassNotFoundException | URISyntaxException | SQLException
 				| JSONException e) {
-			
+			result = "Failed";
 			e.printStackTrace();
 		}
 		return result;
