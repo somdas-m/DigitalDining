@@ -55,7 +55,7 @@ public class TestService {
 			transaction.setCreditedTo(jsonObject.getJSONObject(expenseManagerConstants.T_CreditTo).toString());
 			transaction.setCreditSettled(jsonObject.getJSONObject(expenseManagerConstants.T_CreditSettled).toString());
 			transaction.setTimestamp(jsonObject.getJSONObject(expenseManagerConstants.T_Timestamp).toString());*/
-			Date date = new Date(); //new Date(jsonObject.getJSONObject(expenseManagerConstants.T_Date))
+			Date date = new Date("2017-03-10"); //new Date(jsonObject.getJSONObject(expenseManagerConstants.T_Date))
 			Transaction transaction = new Transaction(date,jsonObject.getJSONObject(expenseManagerConstants.T_Particulars),jsonObject.getJSONObject(expenseManagerConstants.T_Amount),jsonObject.getJSONObject(expenseManagerConstants.T_Category),jsonObject.getJSONObject(expenseManagerConstants.T_isDebit),jsonObject.getJSONObject(expenseManagerConstants.T_DebitedFrom),jsonObject.getJSONObject(expenseManagerConstants.T_DebitSettled),jsonObject.getJSONObject(expenseManagerConstants.T_isCredit),jsonObject.getJSONObject(expenseManagerConstants.T_CreditTo),jsonObject.getJSONObject(expenseManagerConstants.T_CreditSettled),jsonObject.getJSONObject(expenseManagerConstants.T_Timestamp));
 			return transaction.toString();
 			//return DatabaseServices.insertToDB(transaction);
