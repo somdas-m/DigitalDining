@@ -67,50 +67,6 @@ angular
 							field : "transactionID",
 							title : "ID",
 							width : "120px"
-						}, {
-							field : "transactionDate",
-							title : "Date",
-							width : "120px"
-						}, {
-							field : "transactionParticulars",
-							title : "Particulars",
-							width : "120px"
-						}, {
-							field : "transactionAmount",
-							title : "Amount",
-							width : "120px"
-						}, {
-							field : "transactionCategory",
-							title : "Category",
-							width : "120px"
-						},{
-							field : "transactionBorrowed",
-							title : "Borrowed",
-							width : "120px"
-						}, {
-							field : "transactionDebitedFrom",
-							title : "To",
-							width : "120px"
-						}, {
-							field : "transactionDebitSettled",
-							title : "Settled",
-							width : "120px"
-						}, {
-							field : "transactionCredited",
-							title : "ToGet",
-							width : "120px"
-						}, {
-							field : "transactionCreditedTo",
-							title : "From",
-							width : "120px"
-						}, {
-							field : "transactionCreditSettled",
-							title : "From",
-							width : "Settled"
-						}, {
-							field : "transactionTimestamp",
-							title : "TImestamp",
-							width : "120px"
-						} ]
+						}]
 					};
 				});
