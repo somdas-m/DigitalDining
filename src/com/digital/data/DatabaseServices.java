@@ -54,7 +54,7 @@ public class DatabaseServices {
 			if (connection != null) {
 				Statement st = connection.createStatement();
 				//return transaction.toString();
-				String insertQuery = "INSERT INTO MYEXPENSES(date, particulars, amount, category, isdebit, dname, dsettled, iscredit, cname, csettled, timestamp) VALUES ({d"+transaction.getTransactionDate()+"},'"+transaction.getTransactionParticulars()+"',"+ transaction.getTransactionAmount()+","+transaction.getTransactionCategory()+","+ transaction.isTransactionBorrowed()+","+transaction.getTransactionDebitedFrom()+","+transaction.isTransactionDebitSettled()+","+ transaction.isTransactionCredited()+","+transaction.getTransactionCreditedTo()+","+transaction.isTransactionCreditSettled()+","+transaction.getTransactionTimestamp()+");";
+				String insertQuery = "INSERT INTO MYEXPENSES(date, particulars, amount, category, isdebit, dname, dsettled, iscredit, cname, csettled, timestamp) VALUES (to_date('"+transaction.getTransactionDate()+"', 'YYYY-MM-DD'),'"+transaction.getTransactionParticulars()+"',"+ transaction.getTransactionAmount()+","+transaction.getTransactionCategory()+","+ transaction.isTransactionBorrowed()+","+transaction.getTransactionDebitedFrom()+","+transaction.isTransactionDebitSettled()+","+ transaction.isTransactionCredited()+","+transaction.getTransactionCreditedTo()+","+transaction.isTransactionCreditSettled()+","+transaction.getTransactionTimestamp()+");";
 				ResultSet rs = st.executeQuery(insertQuery);
 				System.out.println("Query executed!");
 				return "Success";
