@@ -54,7 +54,8 @@ public class TestService {
 			transaction.setCreditedTo(jsonObject.getJSONObject(expenseManagerConstants.transactionCreditedTo));
 			transaction.setCreditSettled(jsonObject.getJSONObject(expenseManagerConstants.transactionCreditSettled));
 			transaction.setTimestamp(jsonObject.getJSONObject(expenseManagerConstants.transactionTimestamp));
-			return DatabaseServices.insertToDB(transaction);
+			return transaction.toString();
+			//return DatabaseServices.insertToDB(transaction);
 		 }catch(Exception e){
 			return "Exception occured : "+e;
 		}
