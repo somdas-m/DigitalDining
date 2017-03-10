@@ -47,7 +47,7 @@ angular.module("digitalDining",[])
 				payload.transactionCreditSettled = $scope.csettled,
 				payload.transactionTimestamp = new Date();
 				console.log(payload);
-				 $http.post("https://digitaldining.herokuapp.com/service/rest/insertToDB",payload)
+				 $http.post("https://somexpenses.herokuapp.com/service/rest/insertToDB",payload)
 		   		.success(function(response){
 		   			$scope.allItems = response;
 		   			console.log(response);
