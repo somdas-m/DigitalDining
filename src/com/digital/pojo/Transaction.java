@@ -16,6 +16,11 @@ public class Transaction {
 	private String  transactionCreditedTo ;
 	private String  transactionCreditSettled ;
 	private String  transactionTimestamp ;
+	
+	
+	public Transaction() {
+		super();
+	}
 
 	public Transaction(String transactionID, Date transactionDate, String transactionParticulars,
 			String transactionAmount, String transactionCategory, boolean transactionBorrowed,
