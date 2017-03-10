@@ -79,7 +79,7 @@ public class TestService {
 	
 	@GET
 	@Path("/getAll")
-	@Produces(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
 	public JSONArray getAllItems(){
 		JSONArray result = null;
 		try {
