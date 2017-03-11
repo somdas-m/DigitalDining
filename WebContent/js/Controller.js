@@ -54,7 +54,7 @@ angular
 					};
 					$scope.mainGridOptions = {
 						dataSource :{
-							type: "json",
+							type: "jsonp",
 							transport : {
 								read : "https://somexpenses.herokuapp.com/service/rest/getAll"
 							},
