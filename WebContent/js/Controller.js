@@ -50,6 +50,7 @@ angular
 									$scope.gridOptions = {
 										dataSource : data,
 										selectable : "row",
+										toolbar : ['create'],
 										columns : [ {
 											field : "transactionID",
 											title : "ID"
