@@ -36,9 +36,10 @@
 			<button ng-click="insertToDB()">Click</button>
 		</form>
 		<button ng-click="getAllfromDB()">GetAll</button>
-		<kendo-grid options="mainGridOptions">
-        </kendo-grid>
+		
+		<div kendo-grid k-options="gridOptions"></div>
 		<hr />
+		
 		<select kendo-combo-box k-placeholder="'Select product'"
 			k-data-text-field="'ProductName'" k-data-value-field="'ProductID'"
 			k-auto-bind="false" k-min-length="3"

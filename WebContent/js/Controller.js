@@ -3,6 +3,7 @@ angular
 		.controller(
 				"testController",
 				function($scope, $http) {
+					var data;
 					/*$scope.productsDataSource = {
 						type : "odata",
 						serverFiltering : true,
@@ -44,30 +45,26 @@ angular
 								.get(
 										"https://somexpenses.herokuapp.com/service/rest/getAll")
 								.success(function(response) {
-									$scope.allResult = response;
+									data = response;
 									console.log(response);
+									$scope.gridOptions = {
+										      dataSource: data,
+										      selectable: "row",
+										      columns: [
+										        { field: "transactionID", title: "ID" }
+										      ]
+										    };
 								}).error(
 										function(response) {
 											console.log("Internal error : "
 													+ response);
 										});
 					};
-					$scope.mainGridOptions = {
-						dataSource :{
-							dataType: "jsonp",
-							transport : {
-								read : "https://somexpenses.herokuapp.com/service/rest/getAll"
-							},
-							pageSize : 5,
-							serverPaging : true,
-							serverSorting : true
-						},
-						sortable : true,
-						pageable : true,
-						columns : [ {
-							field : "transactionID",
-							title : "ID",
-							width : "120px"
-						}]
-					};
+					/*var data = new kendo.data.DataSource({
+					      data: [
+					        { text: "Foo", id: 1 },
+					        { text: "Bar", id: 2 },
+					        { text: "Baz", id: 3 }
+					      ]
+					    });*/
 				});
