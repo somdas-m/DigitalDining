@@ -50,7 +50,7 @@ angular
 									$scope.gridOptions = {
 										dataSource : data,
 										selectable : "row",
-										toolbar : ['create'],
+										toolbar : ['create', 'pdf', 'excel'],
 										editable : 'popup',
 										columns : [ {
 											field : "transactionID",
