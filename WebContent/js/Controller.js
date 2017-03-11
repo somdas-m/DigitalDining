@@ -51,6 +51,7 @@ angular
 										dataSource : data,
 										selectable : "row",
 										toolbar : ['create'],
+										editable : 'popup',
 										columns : [ {
 											field : "transactionID",
 											title : "ID"
