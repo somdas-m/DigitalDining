@@ -92,8 +92,8 @@ angular
 											width : "120px"
 										}, {
 											field : "transactionCreditSettled",
-											title : "From",
-											width : "Settled"
+											title : "Settled",
+											width : "120px"
 										}, {
 											field : "transactionTimestamp",
 											title : "TImestamp",
